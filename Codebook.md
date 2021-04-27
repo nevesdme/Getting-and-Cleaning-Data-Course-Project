@@ -10,6 +10,6 @@ This dataset provides the following variables:
 
 1. *subject* - ID of person
 2. *activity* - ID of activity\
-`1 = walking     2 = walking upstairs     3 = walking downstairs     4 = sitting     5 = standing     6 = laying`
+`1=walking     2=walking upstairs     3=walking downstairs     4=sitting     5=standing     6=laying`
 3. From the 561 variables available in the original dataset I've only used the mean and standard deviation of the following features:
    - tBodyAcc-XYZ
