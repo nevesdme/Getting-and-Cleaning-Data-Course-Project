@@ -1,2 +1,5 @@
 # Getting-and-Cleaning-Data-Course-Project
-project for Coursera course
+
+This is a project for a Coursera course on getting and cleaning data from by Johns Hopkins University.
+
+https://www.coursera.org/learn/data-cleaning
