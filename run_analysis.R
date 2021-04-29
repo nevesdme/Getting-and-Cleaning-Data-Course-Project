@@ -36,5 +36,5 @@ filtered_dataset$activitylabel <- factor(filtered_dataset$activity,
 library(reshape2)
 aux_colnames = grep("std\\(\\)|mean\\(\\)", feature_names, value = T)
 melted_dataset <-melt(filtered_dataset, id.vars = c('activitylabel', 'subject'), measure.vars = aux_colnames, variable.name = "measure")
-tidy_dataset <- dcast(melted_dataset, activitylabel + subject ~ measure)
+tidy_dataset <- dcast(melted_dataset, activitylabel + subject ~ measure, mean)
 write.table(tidy_dataset, file = "tidy_dataset.txt", row.names = F)
