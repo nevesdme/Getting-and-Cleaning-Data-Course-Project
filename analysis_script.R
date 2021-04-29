@@ -27,3 +27,13 @@ feature_names <- colnames(merged_dataset)
 feature_names_filtered <- grep("mean\\(\\)|std\\(\\)|activity|subject", feature_names, value = T)
 filtered_dataset <- merged_dataset[, feature_names_filtered]
 
+# labeling the respect activity number in the dataset to their correspondent description
+filtered_dataset$activitylabel <- factor(filtered_dataset$activity, 
+                                         levels = c(1,2,3,4,5,6), 
+                                         labels= c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"))
+
+# creating an independent tidy data set with the average of each variable for each activity and each subject
+library(reshape2)
+aux_colnames = grep("std\\(\\)|mean\\(\\)", feature_names, value = T)
+melted_dataset <-melt(filtered_dataset, id.vars = c('activitylabel', 'subject'), measure.vars = aux_colnames, variable.name = "measure")
+tidy_dataset <- dcast(melted_dataset, activitylabel + subject ~ measure)
